@@ -3,7 +3,6 @@ import requests
 import json
 import os
 
-
 SECRET_KEY = os.environ['KEY']
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
@@ -22,13 +21,15 @@ def search():
   def search_result(username):
     api = requests.get(f'https://api.github.com/users/{username}')
     response = json.loads(api.text)
+    repos_link = requests.get(f'https://api.github.com/users/{username}/repos')
+    repos_response = json.loads(repos_link.text)
     
     if 'message' in response:
       return render_template('user_not_found.html')
     
     bio = response['bio'].replace('\r\n', '')
     name = response['name']
-    username = response['login']
+    user = response['login']
     followers = response['followers']
     follwoing = response['following']
     site = response['blog']
@@ -46,9 +47,23 @@ def search():
     company = response['company']
     profile_picture = response['avatar_url']
     repos = response['public_repos']
+    newest_repo = repos_response[0]['full_name']
 
     # render template with all collected information
-    return render_template('search.html', bio=bio, name=name, username=username, followers=followers, follwoing=follwoing, website=site, twitter=twitter_username, location=location, company=company, picture=profile_picture, repos=repos)
+    return render_template('search.html', 
+      bio = bio, 
+      name = name, 
+      username = user, 
+      followers = followers, 
+      follwoing = follwoing, 
+      website = site, 
+      twitter = twitter_username, 
+      location = location, 
+      company = company, 
+      picture = profile_picture, 
+      repos = repos,
+      newest_repo = newest_repo
+    )
 
   if request.method == 'POST':
     username = request.form['user']
