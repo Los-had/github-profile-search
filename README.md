@@ -1,6 +1,6 @@
 # github-profile-search
 
-search github profiles(using github api), link: [https://.herokuapp.com](https://.herokuapp.com)
+search github profiles(using github api)
 ## installing on your machine
 
 download the project on github, after that open your terminal and write:
