@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+{% endblock %}
+
+{% block body %}
+<div class="page-wrap d-flex flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <span class="display-1 d-block">User not found</span>
+          <div class="mb-4 lead">The user you are looking for was not found.</div>
+          <a href="https://github-profile-search.choccy-milk.repl.co" class="btn btn-link">Back to Home</a>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

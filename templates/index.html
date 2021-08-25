@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+{% endblock %}
+
+{% block body %}
+<div class="form-outline">
+  <form action="{{ url_for('search') }}" method="post">
+    <input type="text" id="form1" class="form-control" name="user">
+    <br> 
+    <input type="submit" value="Search user" class="btn btn-success">
+  </form>
+</div>
+{% endblock %}

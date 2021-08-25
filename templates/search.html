@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+{% endblock %}
+
+{% block body %}
+<div class="card" style="width: 18rem;">
+  <img src="{{ picture }}" class="card-img-top" alt="{{ name }} Profile picture">
+  <div class="card-body">
+    <h5 class="card-title">{{ username }}, {{ name }}</h5>
+    <p class="card-text">{{ bio }}</p>
+    <p class="card-text">
+      <ul>
+        <li>followers: {{ followers }}</li>
+        <li>following: {{ following }}</li>
+        <li>website/blog: <a href="{{ website }}" target="_blank" rel="noopener noreferrer">{{ website }}</a></li>
+        <li>twitter username: {{ twitter }}</li>
+        <li>location: {{ location }}</li>
+        <li>company: {{ company }}</li>
+        <li>number of public repos: {{ repos }}</li>
+        <li>newest repo: {{ newest_repo }}</li>
+      </ul>
+    </p>
+    <a href="{{ link }}" class="btn btn-primary">Go to {{ name }}'s profile</a> <a href="https://github-profile-search.choccy-milk.repl.co" class="btn btn-success">Back to home</a>
+  </div>
+</div>
+{% endblock %}
