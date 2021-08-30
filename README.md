@@ -16,5 +16,5 @@ $ python app.py
 
 to stop the server(localhost) press <kbd>Ctrl</kbd><kbd>+</kbd><kbd>C</kbd>
 
-## Licença
+## License
 [MIT](LICENSE)
